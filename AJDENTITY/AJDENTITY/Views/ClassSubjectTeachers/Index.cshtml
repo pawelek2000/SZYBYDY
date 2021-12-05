@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AJDENTITY.Models.ClassSubjectTeacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Class.ClassName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { class_id = item.Class_ID, subject_id = item.Subject_ID, teacher_id = item.Teacher_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { class_id = item.Class_ID, subject_id = item.Subject_ID, teacher_id = item.Teacher_ID })
+        </td>
+    </tr>
+}
+
+</table>

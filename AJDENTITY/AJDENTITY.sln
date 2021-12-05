@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AJDENTITY", "AJDENTITY\AJDENTITY.csproj", "{EED0F137-94DD-4859-8837-F3381718D70E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EED0F137-94DD-4859-8837-F3381718D70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED0F137-94DD-4859-8837-F3381718D70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED0F137-94DD-4859-8837-F3381718D70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED0F137-94DD-4859-8837-F3381718D70E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5F958AE-33CD-4846-8CAC-0E424B8A787D}
+	EndGlobalSection
+EndGlobal
