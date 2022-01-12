@@ -12,26 +12,18 @@ namespace AJDENTITY.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
+        public AspNetRole()
         {
-            this.Grades = new HashSet<Grade>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
         }
     
-        public int Id { get; set; }
-        public string Account_Id { get; set; }
-        public int Class_Id { get; set; }
-        public int Parent_Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-        public string Surname { get; set; }
-        public string PhoneNumber { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Class Class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Grade> Grades { get; set; }
-        public virtual Parent Parent { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

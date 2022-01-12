@@ -20,13 +20,13 @@ namespace AJDENTITY.Models
             this.ClassSubjectTeachers = new HashSet<ClassSubjectTeacher>();
         }
     
-        public int ID { get; set; }
-        public int Account_ID { get; set; }
+        public int Id { get; set; }
+        public string Account_Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string PhoneNumber { get; set; }
     
-        public virtual Account Account { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassSubjectTeacher> ClassSubjectTeachers { get; set; }
     }

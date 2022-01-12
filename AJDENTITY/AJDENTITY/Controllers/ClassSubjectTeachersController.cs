@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using AJDENTITY.Models;
 
 namespace AJDENTITY.Controllers
 {
     public class ClassSubjectTeachersController : Controller
     {
-        private AjdentityEntities db = new AjdentityEntities();
+        private Entities db = new Entities();
 
         // GET: ClassSubjectTeachers
         public ActionResult Index()
@@ -39,9 +40,9 @@ namespace AJDENTITY.Controllers
         // GET: ClassSubjectTeachers/Create
         public ActionResult Create()
         {
-            ViewBag.Class_ID = new SelectList(db.Classes, "ID", "ClassName");
-            ViewBag.Subject_ID = new SelectList(db.Subjects, "ID", "Name");
-            ViewBag.Teacher_ID = new SelectList(db.Teachers, "ID", "Name");
+            ViewBag.Class_ID = new SelectList(db.Classes, "Id", "ClassName");
+            ViewBag.Subject_ID = new SelectList(db.Subjects, "Id", "Name");
+            ViewBag.Teacher_ID = new SelectList(db.Teachers, "Id", "Name");
             return View();
         }
 
@@ -50,7 +51,7 @@ namespace AJDENTITY.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Class_ID,Subject_ID,Teacher_ID")] ClassSubjectTeacher classSubjectTeacher)
+        public ActionResult Create([Bind(Include = "Class_Id,Subject_Id,Teacher_Id")] ClassSubjectTeacher classSubjectTeacher)
         {
             if (ModelState.IsValid)
             {
@@ -58,9 +59,9 @@ namespace AJDENTITY.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Class_ID = new SelectList(db.Classes, "ID", "ClassName", classSubjectTeacher.Class_ID);
-            ViewBag.Subject_ID = new SelectList(db.Subjects, "ID", "Name", classSubjectTeacher.Subject_ID);
-            ViewBag.Teacher_ID = new SelectList(db.Teachers, "ID", "Name", classSubjectTeacher.Teacher_ID);
+            ViewBag.Class_ID = new SelectList(db.Classes, "Id", "ClassName", classSubjectTeacher.Class_Id);
+            ViewBag.Subject_ID = new SelectList(db.Subjects, "Id", "Name", classSubjectTeacher.Subject_Id);
+            ViewBag.Teacher_ID = new SelectList(db.Teachers, "Id", "Name", classSubjectTeacher.Teacher_Id);
 
             return View(classSubjectTeacher);
         }

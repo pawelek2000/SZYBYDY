@@ -14,9 +14,9 @@ namespace AJDENTITY.Models
     
     public partial class ClassSubjectTeacher
     {
-        public int Class_ID { get; set; }
-        public int Subject_ID { get; set; }
-        public int Teacher_ID { get; set; }
+        public int Class_Id { get; set; }
+        public int Subject_Id { get; set; }
+        public int Teacher_Id { get; set; }
     
         public virtual Class Class { get; set; }
         public virtual Subject Subject { get; set; }

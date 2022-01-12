@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Bartosz\source\repos\AJDENTITY\AJDENTITY\Models\DatabaseModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Bartosz\Downloads\SZYBYDY\AJDENTITY\AJDENTITY\Models\_ModelDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

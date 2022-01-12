@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c72176a70a44890969ca30632c3bcae" Name="Diagram1">
+        <EntityTypeShape EntityType="SBD_DBModel.Announcement" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetUser" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Class" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.ClassSubjectTeacher" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Grade" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Message" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Parent" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Student" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Subject" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Teacher" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="SBD_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Message__SenderI__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Parent__Account___3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Student__Account__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Teacher__Account__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Class__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Student__Class_I__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Subje__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Teach__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Grade__Student_I__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Grade__Subject_I__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.FK__Student__Parent___44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.AccountMessage" ManuallyRouted="false" />
+        <AssociationConnector Association="SBD_DBModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

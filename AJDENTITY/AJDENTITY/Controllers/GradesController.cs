@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using AJDENTITY.Models;
 
 namespace AJDENTITY.Controllers
 {
     public class GradesController : Controller
     {
-        private AjdentityEntities db = new AjdentityEntities();
+        private Entities db = new Entities();
 
         // GET: Grades
         public ActionResult Index()
@@ -39,8 +40,8 @@ namespace AJDENTITY.Controllers
         // GET: Grades/Create
         public ActionResult Create()
         {
-            ViewBag.Student_ID = new SelectList(db.Students, "ID", "Name");
-            ViewBag.Subject_ID = new SelectList(db.Subjects, "ID", "Name");
+            ViewBag.Student_ID = new SelectList(db.Students, "Id", "Name");
+            ViewBag.Subject_ID = new SelectList(db.Subjects, "Id", "Name");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace AJDENTITY.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Student_ID,Subject_ID,Value,IsFinal,AddedDate")] Grade grade)
+        public ActionResult Create([Bind(Include = "Id,Student_Id,Subject_Id,Value,IsFinal,AddedDate")] Grade grade)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +59,8 @@ namespace AJDENTITY.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Student_ID = new SelectList(db.Students, "ID", "Name", grade.Student_ID);
-            ViewBag.Subject_ID = new SelectList(db.Subjects, "ID", "Name", grade.Subject_ID);
+            ViewBag.Student_ID = new SelectList(db.Students, "Id", "Name", grade.Student_Id);
+            ViewBag.Subject_ID = new SelectList(db.Subjects, "Id", "Name", grade.Subject_Id);
             return View(grade);
         }
 
@@ -75,8 +76,8 @@ namespace AJDENTITY.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Student_ID = new SelectList(db.Students, "ID", "Name", grade.Student_ID);
-            ViewBag.Subject_ID = new SelectList(db.Subjects, "ID", "Name", grade.Subject_ID);
+            ViewBag.Student_ID = new SelectList(db.Students, "Id", "Name", grade.Student_Id);
+            ViewBag.Subject_ID = new SelectList(db.Subjects, "Id", "Name", grade.Subject_Id);
             return View(grade);
         }
 
@@ -85,7 +86,7 @@ namespace AJDENTITY.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Student_ID,Subject_ID,Value,IsFinal,AddedDate")] Grade grade)
+        public ActionResult Edit([Bind(Include = "Id,Student_Id,Subject_Id,Value,IsFinal,AddedDate")] Grade grade)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +94,8 @@ namespace AJDENTITY.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Student_ID = new SelectList(db.Students, "ID", "Name", grade.Student_ID);
-            ViewBag.Subject_ID = new SelectList(db.Subjects, "ID", "Name", grade.Subject_ID);
+            ViewBag.Student_ID = new SelectList(db.Students, "Id", "Name", grade.Student_Id);
+            ViewBag.Subject_ID = new SelectList(db.Subjects, "Id", "Name", grade.Subject_Id);
             return View(grade);
         }
 

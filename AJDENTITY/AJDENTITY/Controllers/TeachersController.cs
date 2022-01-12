@@ -12,12 +12,12 @@ namespace AJDENTITY.Controllers
 {
     public class TeachersController : Controller
     {
-        private AjdentityEntities db = new AjdentityEntities();
+        private Entities db = new Entities();
 
         // GET: Teachers
         public ActionResult Index()
         {
-            var teachers = db.Teachers.Include(t => t.Account);
+            var teachers = db.Teachers.Include(t => t.AspNetUser);
             return View(teachers.ToList());
         }
 
@@ -39,16 +39,16 @@ namespace AJDENTITY.Controllers
         // GET: Teachers/Create
         public ActionResult Create()
         {
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email");
+            ViewBag.Account_Id = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
         // POST: Teachers/Create
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Account_ID,Name,Surname,PhoneNumber")] Teacher teacher)
+        public ActionResult Create([Bind(Include = "Id,Account_Id,Name,Surname,PhoneNumber")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace AJDENTITY.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email", teacher.Account_ID);
+            ViewBag.Account_Id = new SelectList(db.AspNetUsers, "Id", "Email", teacher.Account_Id);
             return View(teacher);
         }
 
@@ -73,16 +73,16 @@ namespace AJDENTITY.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email", teacher.Account_ID);
+            ViewBag.Account_Id = new SelectList(db.AspNetUsers, "Id", "Email", teacher.Account_Id);
             return View(teacher);
         }
 
         // POST: Teachers/Edit/5
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Account_ID,Name,Surname,PhoneNumber")] Teacher teacher)
+        public ActionResult Edit([Bind(Include = "Id,Account_Id,Name,Surname,PhoneNumber")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace AJDENTITY.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email", teacher.Account_ID);
+            ViewBag.Account_Id = new SelectList(db.AspNetUsers, "Id", "Email", teacher.Account_Id);
             return View(teacher);
         }
 

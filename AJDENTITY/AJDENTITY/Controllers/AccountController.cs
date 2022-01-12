@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+
 using AJDENTITY.Models;
 
 namespace AJDENTITY.Controllers
@@ -168,17 +169,6 @@ namespace AJDENTITY.Controllers
 
                     var roleManager = new IdentityManager();
                     roleManager.AddUserToRoleByUsername(model.Email, model.Role);
-
-                    // TODO: REMOVE COMMENT
-                    using (var db = new AjdentityEntities()) {
-                        var account = new Account() {
-                            Email = model.Email,
-                            Password = model.Password
-                        };
-
-                        db.Accounts.Add(account);
-                        db.SaveChanges();
-                    }
 
                     return RedirectToAction("Index", "Home");
                 }

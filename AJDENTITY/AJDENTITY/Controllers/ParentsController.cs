@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using AJDENTITY.Models;
 
 namespace AJDENTITY.Controllers
 {
     public class ParentsController : Controller
     {
-        private AjdentityEntities db = new AjdentityEntities();
+        private Entities db = new Entities();
 
         // GET: Parents
         public ActionResult Index()
         {
-            var parents = db.Parents.Include(p => p.Account);
+            var parents = db.Parents.Include(p => p.AspNetUser);
             return View(parents.ToList());
         }
 
@@ -39,7 +40,7 @@ namespace AJDENTITY.Controllers
         // GET: Parents/Create
         public ActionResult Create()
         {
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email");
+            ViewBag.Account_ID = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace AJDENTITY.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Account_ID,Name,Surname,PhoneNumber")] Parent parent)
+        public ActionResult Create([Bind(Include = "Id,Account_Id,Name,Surname,PhoneNumber")] Parent parent)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +58,7 @@ namespace AJDENTITY.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email", parent.Account_ID);
+            ViewBag.Account_ID = new SelectList(db.AspNetUsers, "Id", "Email", parent.Account_Id);
             return View(parent);
         }
 
@@ -73,7 +74,7 @@ namespace AJDENTITY.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email", parent.Account_ID);
+            ViewBag.Account_ID = new SelectList(db.AspNetUsers, "Id", "Email", parent.Account_Id);
             return View(parent);
         }
 
@@ -82,7 +83,7 @@ namespace AJDENTITY.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Account_ID,Name,Surname,PhoneNumber")] Parent parent)
+        public ActionResult Edit([Bind(Include = "Id,Account_Id,Name,Surname,PhoneNumber")] Parent parent)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,7 @@ namespace AJDENTITY.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Account_ID = new SelectList(db.Accounts, "ID", "Email", parent.Account_ID);
+            ViewBag.Account_ID = new SelectList(db.AspNetUsers, "Id", "Email", parent.Account_Id);
             return View(parent);
         }
 

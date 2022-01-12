@@ -21,7 +21,7 @@ namespace AJDENTITY.Models
             this.Students = new HashSet<Student>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string ClassName { get; set; }
         public System.DateTime StartDate { get; set; }
     

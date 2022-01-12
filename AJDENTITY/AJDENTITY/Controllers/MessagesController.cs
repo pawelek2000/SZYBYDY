@@ -12,12 +12,13 @@ namespace AJDENTITY.Controllers
 {
     public class MessagesController : Controller
     {
-        private AjdentityEntities db = new AjdentityEntities();
+        private Entities db = new Entities();
 
         // GET: Messages
         public ActionResult Index()
         {
-            return View(db.Messages.ToList());
+            var messages = db.Messages.Include(m => m.AspNetUser);
+            return View(messages.ToList());
         }
 
         // GET: Messages/Details/5
@@ -38,15 +39,16 @@ namespace AJDENTITY.Controllers
         // GET: Messages/Create
         public ActionResult Create()
         {
+            ViewBag.SenderId = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
         // POST: Messages/Create
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Content,SendDate")] Message message)
+        public ActionResult Create([Bind(Include = "Id,SenderId,Content,SendDate")] Message message)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace AJDENTITY.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.SenderId = new SelectList(db.AspNetUsers, "Id", "Email", message.SenderId);
             return View(message);
         }
 
@@ -70,15 +73,16 @@ namespace AJDENTITY.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SenderId = new SelectList(db.AspNetUsers, "Id", "Email", message.SenderId);
             return View(message);
         }
 
         // POST: Messages/Edit/5
-        // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
-        // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Content,SendDate")] Message message)
+        public ActionResult Edit([Bind(Include = "Id,SenderId,Content,SendDate")] Message message)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace AJDENTITY.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.SenderId = new SelectList(db.AspNetUsers, "Id", "Email", message.SenderId);
             return View(message);
         }
 

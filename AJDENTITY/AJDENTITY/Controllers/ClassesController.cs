@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using AJDENTITY.Models;
 
 namespace AJDENTITY.Controllers
 {
     public class ClassesController : Controller
     {
-        private AjdentityEntities db = new AjdentityEntities();
+        private Entities db = new Entities();
 
         // GET: Classes
         public ActionResult Index()
@@ -46,7 +47,7 @@ namespace AJDENTITY.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,ClassName,StartDate")] Class @class)
+        public ActionResult Create([Bind(Include = "Id,ClassName,StartDate")] Class @class)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace AJDENTITY.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,ClassName,StartDate")] Class @class)
+        public ActionResult Edit([Bind(Include = "Id,ClassName,StartDate")] Class @class)
         {
             if (ModelState.IsValid)
             {
