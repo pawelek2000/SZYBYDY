@@ -2,7 +2,6 @@
 USE SBD_DB;
 
 -- Class
-
 SET IDENTITY_INSERT [dbo].[Class] ON
 INSERT INTO [dbo].[Class] ([Id], [ClassName], [StartDate]) VALUES (1, N'IA', N'2016-09-01')
 INSERT INTO [dbo].[Class] ([Id], [ClassName], [StartDate]) VALUES (2, N'IIA', N'2015-09-01')
@@ -10,7 +9,6 @@ INSERT INTO [dbo].[Class] ([Id], [ClassName], [StartDate]) VALUES (3, N'IIIA', N
 SET IDENTITY_INSERT [dbo].[Class] OFF
 
 -- Subject
-
 SET IDENTITY_INSERT [dbo].[Subject] ON
 INSERT INTO [dbo].[Subject] ([Id], [Name], [LearningContent]) VALUES (1, N'Religia', N'Nauka o Bogu')
 INSERT INTO [dbo].[Subject] ([Id], [Name], [LearningContent]) VALUES (2, N'Historia 1 ', N'Sredniowiecze')
@@ -41,7 +39,6 @@ INSERT INTO [dbo].[Subject] ([Id], [Name], [LearningContent]) VALUES (38, N'WF',
 SET IDENTITY_INSERT [dbo].[Subject] OFF
 
 -- Teacher
-
 SET IDENTITY_INSERT [dbo].[Teacher] ON
 INSERT INTO [dbo].[Teacher] ([Id], [Account_Id], [Name], [Surname], [PhoneNumber]) VALUES (1, N'c92c1797-4abf-4e34-a7a0-800e1e4049c7', N'Elzbieta ', N'Mordan', N'888989812')
 INSERT INTO [dbo].[Teacher] ([Id], [Account_Id], [Name], [Surname], [PhoneNumber]) VALUES (2, N'5fc6b13d-ffc5-43a3-ba97-2913d7fd94bb', N'Katarzyna', N'Wakulinska', N'213707369')
@@ -55,7 +52,6 @@ INSERT INTO [dbo].[Teacher] ([Id], [Account_Id], [Name], [Surname], [PhoneNumber
 SET IDENTITY_INSERT [dbo].[Teacher] OFF
 
 -- Parent
-
 SET IDENTITY_INSERT [dbo].[Parent] ON
 INSERT INTO [dbo].[Parent] ([Id], [Account_Id], [Name], [Surname], [PhoneNumber]) VALUES (3, N'd2d693e8-c354-4b61-a7a0-bbf5d9ba4d84', N'Mariusz', N'Pudzianowski', N'997123454')
 INSERT INTO [dbo].[Parent] ([Id], [Account_Id], [Name], [Surname], [PhoneNumber]) VALUES (5, N'6dc9229f-095f-4dc6-b961-cf054d74be18', N'Bozena', N'Kowalska', N'666315666')
@@ -75,36 +71,19 @@ INSERT INTO [dbo].[Parent] ([Id], [Account_Id], [Name], [Surname], [PhoneNumber]
 SET IDENTITY_INSERT [dbo].[Parent] OFF
 
 -- Student
-
 SET IDENTITY_INSERT [dbo].[Student] ON
 INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (5, N'ae93f5b4-8a4a-4490-8c3c-9009c6eba0cd', 1, 3, N'Gianluigi', N'Frytetti', N'565667878')
 INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (6, N'70562d0d-8a92-43dd-8b61-0992efc23cfc', 1, 3, N'Nicola', N'Mancini', N'431323664')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (7, N'4d4cb3ad-4f3e-4afb-9a3b-5c8b3edd7329', 1, 8, N'Pawel', N'Wojciuk', N'777667776')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (8, N'9d39ca7a-2a1a-4e74-aa48-7b6da4bd685b', 1, 9, N'Norbert', N'Pawlenko', N'475637485')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (9, N'203bc0a8-6c04-4a2f-b620-625109243137', 1, 24, N'Weronika', N'Wierzba', N'345763754')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (10, N'29116593-f14d-4f07-99bb-eb1becabc65d', 2, 23, N'Karolina', N'Koziol', N'354626738')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (17, N'9b9b4548-9708-4b3b-b0bb-cab1cf160c3a', 2, 21, N'Grzegorz', N'Zomb', N'839540493')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (18, N'67dc2397-4623-474c-9cbf-d7d71db868c7', 2, 20, N'Hubert', N'Szklanka', N'486205856')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (19, N'1b0159d1-1ab3-417a-83b8-27b59936ea2e', 2, 19, N'Herbert', N'Mann', N'498571932')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (20, N'f1b0298d-b8b9-47dd-8598-9441ef9d9c37', 2, 17, N'Andrzej', N'Busola', N'384756893')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (21, N'b861ec22-0e36-4ece-8132-4fcb64295c84', 3, 16, N'Pawel', N'Mittwoch', N'123532945')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (22, N'85af7436-4b8b-438f-bb7e-2020f1ec03f1', 3, 14, N'Bartosz', N'Wtornik', N'283756746')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (23, N'22a1dcee-06b6-44ce-a115-774b78b06534', 3, 12, N'Katarzyna', N'Geniusz', N'847583928')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (24, N'48c2eb4d-9c78-467c-9531-0692e341d49f', 3, 11, N'Dawid', N'Kupkowski', N'394847267')
-INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name], [Surname], [PhoneNumber]) VALUES (25, N'7800e58c-8cda-43eb-8368-37b109b2edbe', 3, 3, N'Adrian', N'Anchim', N'298376281')
 SET IDENTITY_INSERT [dbo].[Student] OFF
 
 -- Grade
-
 SET IDENTITY_INSERT [dbo].[Grade] ON
 INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (2, 5, 2, N'6', 0, N'2016-09-02')
 INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (3, 6, 2, N'6', 0, N'2016-09-05')
-INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (4, 7, 2, N'4.5', 0, N'2016-09-06')
 SET IDENTITY_INSERT [dbo].[Grade] OFF
 
 
 -- Class_Subject_Teacher
-
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 1, 23)
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 2, 8)
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 11, 19)

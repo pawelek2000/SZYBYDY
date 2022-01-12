@@ -32,6 +32,26 @@
 
                             <li>@Html.ActionLink("Klasy", "Index", "Classes")</li>
                             <li>@Html.ActionLink("Przedmioty", "Index", "Subjects")</li>
+
+                            <li>@Html.ActionLink("PrzedmiotyNauczycieli", "Index", "ClassSubjectTeachers")</li>
+                        }
+
+                        @if (User.IsInRole("Nauczyciel")) {
+                            // Wystawianie ocen
+                            // Wiadomosci do rodzicow
+                            // Przedmioty (edycja programu nauczania)
+                            // Edycja danych osobowych
+                        }
+
+                        @if (User.IsInRole("Rodzic")) {
+                            <li>@Html.ActionLink("Moje dzieci", "Index", "MojeDzieci")</li>
+                            // Wiadomosci do nauczycieli
+                            // Edycja danych osobowych
+                        }
+
+                        @if (User.IsInRole("Uczen")) {
+                            // Sprawdzanie swoich ocen
+                            // Edycja danych osobowych
                         }
                     </ul>
                     @Html.Partial("_LoginPartial")

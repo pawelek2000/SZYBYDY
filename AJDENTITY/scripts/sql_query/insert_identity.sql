@@ -7,12 +7,12 @@ INSERT INTO [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'25d19b9a-37f4-45b3-bf9b
 INSERT INTO [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'687d20e9-b10f-4ad6-8b77-7fea47986f4f', N'Nauczyciel')
 INSERT INTO [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'9117261e-9d3f-4f90-9ca4-18126a51cee4', N'Rodzic')
 INSERT INTO [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f', N'Uczen')
+GO
 
 -- ???
 INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'40ed422e-6705-4991-897a-805cf055e02b', N'admin@pb', 0, N'AGWQiGVXvEmRtfzeN3eANVYaX/aE/KwZq59QpUXt+wNRhGlbMiW1h3aJB0fHQDwdeg==', N'7d0440d2-7c27-4b17-b614-ad621744df14', NULL, 0, 0, NULL, 1, 0, N'admin@pb')
-
-INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'69f1673b-aa86-4b93-bc9f-82365f12735c', N'akupkowski@gmail.com', 0, N'AOMP33XatXhFRnSLeF6UfQh745ouXsRh5K9py7/FTI8t3JHs6dcB3PhPgXexhhuAow==', N'1cc5b77b-3171-4c22-b653-18ab85272ccb', NULL, 0, 0, NULL, 1, 0, N'akupkowski@gmail.com')
 INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'fc28f1a0-dd1e-4644-bb77-7bd9e67e45ef', N'aszklanka@gmail.com', 0, N'ADdeUoj9IQwRw3ZJl4qfVQ3V8kGPI76Co2Ad6sR2bBwgJVrAYx1DnJQZMDChcdTsTg==', N'7f28499f-e42b-4abf-a54a-984f33631098', NULL, 0, 0, NULL, 1, 0, N'aszklanka@gmail.com')
+INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'69f1673b-aa86-4b93-bc9f-82365f12735c', N'akupkowski@gmail.com', 0, N'AOMP33XatXhFRnSLeF6UfQh745ouXsRh5K9py7/FTI8t3JHs6dcB3PhPgXexhhuAow==', N'1cc5b77b-3171-4c22-b653-18ab85272ccb', NULL, 0, 0, NULL, 1, 0, N'akupkowski@gmail.com')
 INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'd9ad1c13-806c-4ddd-b5b7-1f3c2b6694fc', N'b.buslowska@gmail.com', 0, N'ALfPzLvSShHTkkf3PwywKEf8tXVResHbect5ztdPka1XnjNb1L8LrdKwZy/sXChajQ==', N'2bef20d7-e444-42bc-9aa2-8f89495be547', NULL, 0, 0, NULL, 1, 0, N'b.buslowska@gmail.com')
 INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'dc7f1fb0-9236-4341-ba89-f0f8202ed5bb', N'b.nowicki@gmail.com', 0, N'ANw0BUqxDYvsBTWkCyPH93DDBCWOQfKEKon7sOzPhmWqeZmRSui5cEslbduqoex/+w==', N'438d7610-0e62-4d96-948e-7c0e92d1faca', NULL, 0, 0, NULL, 1, 0, N'b.nowicki@gmail.com')
 INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'6dc9229f-095f-4dc6-b961-cf054d74be18', N'bozena.kowalska@radiomaryja.pl', 0, N'ALhdYHmUadbAE6jvdGt4ESX2T69F3MEHOK8EHIOGcgV0ed11sNuNiaS2zB/PSE3LNw==', N'6f55ce74-aab7-49dd-bbf3-8d810b5350b3', NULL, 0, 0, NULL, 1, 0, N'bozena.kowalska@radiomaryja.pl')
@@ -44,26 +44,11 @@ INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash]
 INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'4266c754-09da-40ed-9321-fb171e7a88de', N'u.geniusz@gmail.com', 0, N'AN0vFRrBFVhE1f2aJW0Ruzzl0oiViXTvMZdlDU/vD4jvWgSb6DbsK8IE5xVULjUTEA==', N'8994920a-b243-41fd-8e64-32414bb71408', NULL, 0, 0, NULL, 1, 0, N'u.geniusz@gmail.com')
 
 -- ???
-
-
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'40ed422e-6705-4991-897a-805cf055e02b', N'25d19b9a-37f4-45b3-bf9b-1bf3e1d5ce99')
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'fc28f1a0-dd1e-4644-bb77-7bd9e67e45ef', N'25d19b9a-37f4-45b3-bf9b-1bf3e1d5ce99')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'1b0159d1-1ab3-417a-83b8-27b59936ea2e', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'203bc0a8-6c04-4a2f-b620-625109243137', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'22a1dcee-06b6-44ce-a115-774b78b06534', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'29116593-f14d-4f07-99bb-eb1becabc65d', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'3e78eff4-85ec-426b-9078-93ca2f38ab60', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'48c2eb4d-9c78-467c-9531-0692e341d49f', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'4d4cb3ad-4f3e-4afb-9a3b-5c8b3edd7329', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'67dc2397-4623-474c-9cbf-d7d71db868c7', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'70562d0d-8a92-43dd-8b61-0992efc23cfc', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'7800e58c-8cda-43eb-8368-37b109b2edbe', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'85af7436-4b8b-438f-bb7e-2020f1ec03f1', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'9b9b4548-9708-4b3b-b0bb-cab1cf160c3a', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'9d39ca7a-2a1a-4e74-aa48-7b6da4bd685b', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'ae93f5b4-8a4a-4490-8c3c-9009c6eba0cd', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'b861ec22-0e36-4ece-8132-4fcb64295c84', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f1b0298d-b8b9-47dd-8598-9441ef9d9c37', N'4c2cbdf3-6ae1-47c8-8686-b3fc29e7594f')
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'08abb7c0-2581-4fb9-89c5-b01b8cb4f05b', N'687d20e9-b10f-4ad6-8b77-7fea47986f4f')
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'144e8787-9969-4b94-9c2b-55f2ae32ce7e', N'687d20e9-b10f-4ad6-8b77-7fea47986f4f')
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'150be443-7089-454f-8b2c-e455b67db1ef', N'687d20e9-b10f-4ad6-8b77-7fea47986f4f')
