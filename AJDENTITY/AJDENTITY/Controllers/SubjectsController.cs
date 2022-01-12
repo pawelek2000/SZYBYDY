@@ -17,7 +17,8 @@ namespace AJDENTITY.Controllers
 
         // GET: Subjects
         public ActionResult Index()
-        {
+        {;
+            
             return View(db.Subjects.ToList());
         }
 
