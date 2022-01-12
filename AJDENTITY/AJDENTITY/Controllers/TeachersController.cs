@@ -39,7 +39,29 @@ namespace AJDENTITY.Controllers
         // GET: Teachers/Create
         public ActionResult Create()
         {
-            ViewBag.Account_Id = new SelectList(db.AspNetUsers, "Id", "Email");
+            var manager = new IdentityManager();
+
+            var current_teachers = db.Teachers.ToList();
+            var current_teacher_accounts = new List<AspNetUser>();
+
+            foreach(var teacher in current_teachers) {
+                current_teacher_accounts.Add(db.AspNetUsers.Where(p => p.Id == teacher.Account_Id).ToList()[0]);
+            }
+
+            var teacher_role = db.AspNetRoles.Where(p => p.Name == "Nauczyciel").ToList()[0];
+            var all_teacher_accounts = new List<AspNetUser>();
+
+            foreach (var account in db.AspNetUsers) {
+                var user = manager.GetUserByID(account.Id);
+
+                if (user.Roles.ToList()[0].RoleId == teacher_role.Id) {
+                    all_teacher_accounts.Add(account);
+                }
+            }
+
+            var result = all_teacher_accounts.Where(p => !current_teacher_accounts.Contains(p)).ToList();
+            ViewBag.Account_Id = new SelectList(result, "Id", "Email");
+
             return View();
         }
 
@@ -54,6 +76,7 @@ namespace AJDENTITY.Controllers
             {
                 db.Teachers.Add(teacher);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -73,7 +96,33 @@ namespace AJDENTITY.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Account_Id = new SelectList(db.AspNetUsers, "Id", "Email", teacher.Account_Id);
+
+            // LOL
+            var manager = new IdentityManager();
+
+            var current_teachers = db.Teachers.ToList();
+            var current_teacher_accounts = new List<AspNetUser>();
+
+            foreach (var tea in current_teachers) {
+                current_teacher_accounts.Add(db.AspNetUsers.Where(p => p.Id == tea.Account_Id).ToList()[0]);
+            }
+
+            var teacher_role = db.AspNetRoles.Where(p => p.Name == "Nauczyciel").ToList()[0];
+            var all_teacher_accounts = new List<AspNetUser>();
+
+            foreach (var account in db.AspNetUsers) {
+                var user = manager.GetUserByID(account.Id);
+
+                if (user.Roles.ToList()[0].RoleId == teacher_role.Id) {
+                    all_teacher_accounts.Add(account);
+                }
+            }
+
+            var result = all_teacher_accounts.Where(p => !current_teacher_accounts.Contains(p)).ToList();
+            result.Insert(0, db.AspNetUsers.ToList().Find(p => p.Id == teacher.Account_Id));
+            // XD
+
+            ViewBag.Account_Id = new SelectList(result, "Id", "Email");
             return View(teacher);
         }
 

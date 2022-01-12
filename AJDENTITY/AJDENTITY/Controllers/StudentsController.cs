@@ -40,10 +40,31 @@ namespace AJDENTITY.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.Account_ID = new SelectList(db.AspNetUsers, "Id", "Email");
-
             ViewBag.Class_ID = new SelectList(db.Classes, "Id", "ClassName");
             ViewBag.Parent_ID = new SelectList(db.Parents, "Id", "Name");
+
+            var manager = new IdentityManager();
+
+            var current_students = db.Students.ToList();
+            var current_student_accounts = new List<AspNetUser>();
+
+            foreach (var student in current_students) {
+                current_student_accounts.Add(db.AspNetUsers.Where(p => p.Id == student.Account_Id).ToList()[0]);
+            }
+
+            var student_role = db.AspNetRoles.Where(p => p.Name == "Uczen").ToList()[0];
+            var all_student_accounts = new List<AspNetUser>();
+
+            foreach (var account in db.AspNetUsers) {
+                var user = manager.GetUserByID(account.Id);
+
+                if (user.Roles.ToList()[0].RoleId == student_role.Id) {
+                    all_student_accounts.Add(account);
+                }
+            }
+
+            var result = all_student_accounts.Where(p => !current_student_accounts.Contains(p)).ToList();
+            ViewBag.Account_Id = new SelectList(result, "Id", "Email");
 
             return View();
         }
@@ -87,6 +108,32 @@ namespace AJDENTITY.Controllers
             ViewBag.Class_ID = new SelectList(db.Classes, "Id", "ClassName", student.Class_Id);
             ViewBag.Parent_ID = new SelectList(db.Parents, "Id", "Name", student.Parent_Id);
 
+            // KEKW
+            var manager = new IdentityManager();
+
+            var current_students = db.Students.ToList();
+            var current_student_accounts = new List<AspNetUser>();
+
+            foreach (var stuuu in current_students) {
+                current_student_accounts.Add(db.AspNetUsers.Where(p => p.Id == stuuu.Account_Id).ToList()[0]);
+            }
+
+            var student_role = db.AspNetRoles.Where(p => p.Name == "Uczen").ToList()[0];
+            var all_student_accounts = new List<AspNetUser>();
+
+            foreach (var account in db.AspNetUsers) {
+                var user = manager.GetUserByID(account.Id);
+
+                if (user.Roles.ToList()[0].RoleId == student_role.Id) {
+                    all_student_accounts.Add(account);
+                }
+            }
+
+            var result = all_student_accounts.Where(p => !current_student_accounts.Contains(p)).ToList();
+            result.Insert(0, db.AspNetUsers.ToList().Find(p => p.Id == student.Account_Id));
+            // 5Head
+
+            ViewBag.Account_Id = new SelectList(result, "Id", "Email");
             return View(student);
         }
 
