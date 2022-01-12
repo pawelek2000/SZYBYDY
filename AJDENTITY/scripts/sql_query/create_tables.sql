@@ -19,7 +19,7 @@ CREATE TABLE Class (
 
 CREATE TABLE Message (
     Id                  INT                 NOT NULL        PRIMARY KEY IDENTITY,
-	SenderId			NVARCHAR(128)		NOT NULL		UNIQUE FOREIGN KEY REFERENCES AspNetUsers(Id),
+	SenderId			NVARCHAR(128)		NOT NULL		FOREIGN KEY REFERENCES AspNetUsers(Id),
 
     Content             VARCHAR(1024)       NOT NULL,
     SendDate            DATE                NOT NULL,
