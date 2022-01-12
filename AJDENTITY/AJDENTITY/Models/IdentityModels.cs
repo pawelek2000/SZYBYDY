@@ -70,6 +70,7 @@ namespace AJDENTITY.Models
 			UserManager<ApplicationUser> um = this.LocalUserManager;
 
 			user = um.FindByEmail(email);
+			
 
 			return user;
 		}
@@ -128,7 +129,7 @@ namespace AJDENTITY.Models
 			var currentRoles = new List<IdentityUserRole>();
 
 			currentRoles.AddRange(user.Roles);
-
+			
 			foreach (var role in currentRoles)
 			{
 				um.RemoveFromRole(userId, role.RoleId);
