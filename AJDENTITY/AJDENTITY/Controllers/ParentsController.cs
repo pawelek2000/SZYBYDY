@@ -164,8 +164,10 @@ namespace AJDENTITY.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Parent parent = db.Parents.Find(id);
+
             db.Parents.Remove(parent);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

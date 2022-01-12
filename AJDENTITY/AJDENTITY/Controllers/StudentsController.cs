@@ -179,8 +179,10 @@ namespace AJDENTITY.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Student student = db.Students.Find(id);
+
             db.Students.Remove(student);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
