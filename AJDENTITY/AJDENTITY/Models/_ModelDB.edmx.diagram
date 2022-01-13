@@ -4,33 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4c72176a70a44890969ca30632c3bcae" Name="Diagram1" ZoomLevel="40">
+      <Diagram DiagramId="4c72176a70a44890969ca30632c3bcae" Name="Diagram1" ZoomLevel="61">
         <EntityTypeShape EntityType="SBD_DBModel.Announcement" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SBD_DBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8" />
-        <EntityTypeShape EntityType="SBD_DBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="13.625" />
-        <EntityTypeShape EntityType="SBD_DBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="5" />
-        <EntityTypeShape EntityType="SBD_DBModel.AspNetUser" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="5.125" />
+        <EntityTypeShape EntityType="SBD_DBModel.AspNetUser" Width="1.5" PointX="3" PointY="6.5" />
         <EntityTypeShape EntityType="SBD_DBModel.Class" Width="1.5" PointX="5.25" PointY="19.5" />
         <EntityTypeShape EntityType="SBD_DBModel.ClassSubjectTeacher" Width="1.5" PointX="7.5" PointY="2" />
-        <EntityTypeShape EntityType="SBD_DBModel.Grade" Width="1.5" PointX="9.75" PointY="7.5" />
-        <EntityTypeShape EntityType="SBD_DBModel.Message" Width="1.5" PointX="5.25" PointY="10.75" />
-        <EntityTypeShape EntityType="SBD_DBModel.Parent" Width="1.5" PointX="5.25" PointY="7.625" />
-        <EntityTypeShape EntityType="SBD_DBModel.Student" Width="1.5" PointX="7.5" PointY="7.25" />
+        <EntityTypeShape EntityType="SBD_DBModel.Grade" Width="1.5" PointX="9.75" PointY="10" />
+        <EntityTypeShape EntityType="SBD_DBModel.Message" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="SBD_DBModel.Parent" Width="1.5" PointX="5.25" PointY="13.625" />
+        <EntityTypeShape EntityType="SBD_DBModel.Student" Width="1.5" PointX="7.5" PointY="9.625" />
         <EntityTypeShape EntityType="SBD_DBModel.Subject" Width="1.5" PointX="5.25" PointY="16.75" />
-        <EntityTypeShape EntityType="SBD_DBModel.Teacher" Width="1.5" PointX="5.25" PointY="1.875" />
+        <EntityTypeShape EntityType="SBD_DBModel.Teacher" Width="1.5" PointX="5.25" PointY="2" />
         <AssociationConnector Association="SBD_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="SBD_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SBD_DBModel.FK__Message__Receive__35BCFE0A" />
         <AssociationConnector Association="SBD_DBModel.FK__Message__SenderI__34C8D9D1" />
-        <AssociationConnector Association="SBD_DBModel.FK__Parent__Account___3E52440B" />
-        <AssociationConnector Association="SBD_DBModel.FK__Student__Account__4222D4EF" />
-        <AssociationConnector Association="SBD_DBModel.FK__Teacher__Account__3A81B327" />
-        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Class__4E88ABD4" />
-        <AssociationConnector Association="SBD_DBModel.FK__Student__Class_I__4316F928" />
-        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Subje__4F7CD00D" />
-        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Teach__5070F446" />
-        <AssociationConnector Association="SBD_DBModel.FK__Grade__Student_I__46E78A0C" />
-        <AssociationConnector Association="SBD_DBModel.FK__Grade__Subject_I__47DBAE45" />
-        <AssociationConnector Association="SBD_DBModel.FK__Student__Parent___440B1D61" />
+        <AssociationConnector Association="SBD_DBModel.FK__Parent__Account___3F466844" />
+        <AssociationConnector Association="SBD_DBModel.FK__Student__Account__4316F928" />
+        <AssociationConnector Association="SBD_DBModel.FK__Teacher__Account__3B75D760" />
+        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Class__4F7CD00D" />
+        <AssociationConnector Association="SBD_DBModel.FK__Student__Class_I__440B1D61" />
+        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Subje__5070F446" />
+        <AssociationConnector Association="SBD_DBModel.FK__ClassSubj__Teach__5165187F" />
+        <AssociationConnector Association="SBD_DBModel.FK__Grade__Student_I__47DBAE45" />
+        <AssociationConnector Association="SBD_DBModel.FK__Grade__Subject_I__48CFD27E" />
+        <AssociationConnector Association="SBD_DBModel.FK__Student__Parent___44FF419A" />
         <AssociationConnector Association="SBD_DBModel.AccountMessage" />
         <AssociationConnector Association="SBD_DBModel.AspNetUserRoles" />
       </Diagram>
