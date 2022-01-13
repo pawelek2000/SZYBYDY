@@ -6,41 +6,39 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
 using AJDENTITY.Models;
 
 namespace AJDENTITY.Controllers
 {
-    public class KontaktyDoNauczycieliController : Controller
+    public class KontaktyDoRodzicowController : Controller
     {
         private Entities db = new Entities();
 
         static private string Rodzic_ID;
         static private string Nauczyciel_ID;
 
-        // GET: KontaktyDoNauczycieli
+        // GET: KontaktyDoRodzicow
         public ActionResult Index()
         {
-            var teachers = db.Teachers.Include(t => t.AspNetUser);
-            return View(teachers.ToList());
+            var parents = db.Parents.Include(p => p.AspNetUser);
+            return View(parents.ToList());
         }
 
         // GET: KontaktyDoNauczycieli/Details/5
-        public ActionResult Details(int? id)
-        {
+        public ActionResult Details(int? id) {
             IdentityManager identityManager = new IdentityManager();
 
-            Rodzic_ID = identityManager.GetUserByName(User.Identity.Name).Id;
-            Nauczyciel_ID = db.Teachers.ToList().Find(p => (p.Id == id)).Account_Id;
+            Rodzic_ID = db.Parents.ToList().Find(p => (p.Id == id)).Account_Id;
+            Nauczyciel_ID = identityManager.GetUserByName(User.Identity.Name).Id;
 
             var messages = db.Messages.Include(m => m.AspNetUser).Where(p => (p.SenderId == Rodzic_ID && p.ReceiverId == Nauczyciel_ID) || (p.SenderId == Nauczyciel_ID && p.ReceiverId == Rodzic_ID));
 
-            foreach(var message in messages) {
-                if(message.SenderId == Rodzic_ID) {
-                    message.SenderId = db.Parents.ToList().Find(p => p.AspNetUser.Email == User.Identity.Name).Name + " " + db.Parents.ToList().Find(p => p.AspNetUser.Email == User.Identity.Name).Surname;
+            foreach (var message in messages) {
+                if (message.SenderId == Nauczyciel_ID) {
+                    message.SenderId = db.Teachers.ToList().Find(p => p.AspNetUser.Email == User.Identity.Name).Name + " " + db.Teachers.ToList().Find(p => p.AspNetUser.Email == User.Identity.Name).Surname;
                 }
                 else {
-                    message.SenderId = db.Teachers.ToList().Find(p => p.Id == id).Name + " " + db.Teachers.ToList().Find(p => p.Id == id).Surname;
+                    message.SenderId = db.Parents.ToList().Find(p => p.Id == id).Name + " " + db.Parents.ToList().Find(p => p.Id == id).Surname;
                 }
             }
 
@@ -61,8 +59,8 @@ namespace AJDENTITY.Controllers
             if (ModelState.IsValid && message.Content != "") {
                 message.SendDate = DateTime.Now;
 
-                message.SenderId = Rodzic_ID;
-                message.ReceiverId = Nauczyciel_ID;
+                message.SenderId = Nauczyciel_ID;
+                message.ReceiverId = Rodzic_ID;
 
                 db.Messages.Add(message);
                 db.SaveChanges();
@@ -73,8 +71,10 @@ namespace AJDENTITY.Controllers
             return View(message);
         }
 
-        protected override void Dispose(bool disposing) {
-            if (disposing) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
                 db.Dispose();
             }
             base.Dispose(disposing);
