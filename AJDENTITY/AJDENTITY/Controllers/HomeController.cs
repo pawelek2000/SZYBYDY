@@ -1,23 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AJDENTITY.Models;
 
 namespace AJDENTITY.Controllers {
-    public class HomeController : Controller {
-        public ActionResult Index() {
-            return View();
+    public class HomeController : Controller
+    {
+        private Entities db = new Entities();
+
+        // GET: Announcements
+        public ActionResult Index()
+        {
+            return View(db.Announcements.ToList());
         }
 
-        public ActionResult About() {
-            ViewBag.Message = "Your application description page.";
-            return View();
+        // GET: Announcements/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Announcement announcement = db.Announcements.Find(id);
+            if (announcement == null)
+            {
+                return HttpNotFound();
+            }
+            return View(announcement);
         }
-
-        public ActionResult Contact() {
-            ViewBag.Message = "Your contact page.";
-            return View();
-        }
+   
+        
     }
 }
