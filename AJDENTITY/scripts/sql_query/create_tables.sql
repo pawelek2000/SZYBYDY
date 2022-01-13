@@ -74,7 +74,7 @@ CREATE TABLE Grade (
 
     Value               VARCHAR(3)          NOT NULL,
     IsFinal             BIT                 NOT NULL,
-    AddedDate           DATE                NOT NULL,
+    AddedDate           SMALLDATETIME       NOT NULL,
 );
 
 

@@ -103,8 +103,11 @@ namespace AJDENTITY.Controllers
         {
             if (ModelState.IsValid)
             {
+                grade.AddedDate = DateTime.Now;
+
                 db.Grades.Add(grade);
                 db.SaveChanges();
+
                 return RedirectToAction("OcenyUczniaZPrzedmiotu/"+Uczen_ID);
             }
 
@@ -139,8 +142,11 @@ namespace AJDENTITY.Controllers
         {
             if (ModelState.IsValid)
             {
+                grade.AddedDate = DateTime.Now;
+
                 db.Entry(grade).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("OcenyUczniaZPrzedmiotu/" + Uczen_ID);
             }
             ViewBag.Student_ID = new SelectList(db.Students.Where(p => p.Id == Uczen_ID), "Id", "Name");
@@ -169,8 +175,10 @@ namespace AJDENTITY.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Grade grade = db.Grades.Find(id);
+
             db.Grades.Remove(grade);
             db.SaveChanges();
+
             return RedirectToAction("OcenyUczniaZPrzedmiotu/" + Uczen_ID);
         }
         protected override void Dispose(bool disposing)
