@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnnouncementsController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\ClassSubjectTeachersController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
@@ -353,9 +354,15 @@
     <Content Include="Views\MojeDzieci\Details.cshtml" />
     <Content Include="Views\MojeDzieci\Index.cshtml" />
     <Content Include="Views\MojeDzieci\OcenyDziecka.cshtml" />
+    <Content Include="Views\Announcements\Create.cshtml" />
+    <Content Include="Views\Announcements\Delete.cshtml" />
+    <Content Include="Views\Announcements\Details.cshtml" />
+    <Content Include="Views\Announcements\Edit.cshtml" />
+    <Content Include="Views\Announcements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
