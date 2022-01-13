@@ -164,7 +164,11 @@ namespace AJDENTITY.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Teacher teacher = db.Teachers.Find(id);
+            AspNetUser user = db.AspNetUsers.Find(teacher.Account_Id);
+
             db.Teachers.Remove(teacher);
+            db.AspNetUsers.Remove(user);
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

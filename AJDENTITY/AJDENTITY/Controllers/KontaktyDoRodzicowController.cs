@@ -65,7 +65,7 @@ namespace AJDENTITY.Controllers
                 db.Messages.Add(message);
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details" + "/" + db.Parents.ToList().Find(p => p.Account_Id == Rodzic_ID).Id);
             }
 
             return View(message);

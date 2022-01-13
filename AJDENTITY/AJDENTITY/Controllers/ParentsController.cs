@@ -164,10 +164,12 @@ namespace AJDENTITY.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Parent parent = db.Parents.Find(id);
+            AspNetUser user = db.AspNetUsers.Find(parent.Account_Id);
 
             db.Parents.Remove(parent);
-            db.SaveChanges();
+            db.AspNetUsers.Remove(user);
 
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
