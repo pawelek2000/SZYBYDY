@@ -108,6 +108,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SenderId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ReceiverId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Content" Type="varchar" MaxLength="1024" Nullable="false" />
           <Property Name="SendDate" Type="date" Nullable="false" />
         </EntityType>
@@ -151,7 +152,7 @@
           <Property Name="Surname" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="PhoneNumber" Type="char" MaxLength="9" Nullable="false" />
         </EntityType>
-        <Association Name="FK__AccountMe__Accou__4AB81AF0">
+        <Association Name="FK__AccountMe__Accou__4BAC3F29">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="AccountMessage" Type="Self.AccountMessage" Multiplicity="*" />
           <ReferentialConstraint>
@@ -163,7 +164,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AccountMe__Messa__4BAC3F29">
+        <Association Name="FK__AccountMe__Messa__4CA06362">
           <End Role="Message" Type="Self.Message" Multiplicity="1" />
           <End Role="AccountMessage" Type="Self.AccountMessage" Multiplicity="*" />
           <ReferentialConstraint>
@@ -175,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClassSubj__Class__4E88ABD4">
+        <Association Name="FK__ClassSubj__Class__4F7CD00D">
           <End Role="Class" Type="Self.Class" Multiplicity="1" />
           <End Role="ClassSubjectTeacher" Type="Self.ClassSubjectTeacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -187,7 +188,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClassSubj__Subje__4F7CD00D">
+        <Association Name="FK__ClassSubj__Subje__5070F446">
           <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
           <End Role="ClassSubjectTeacher" Type="Self.ClassSubjectTeacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -199,7 +200,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClassSubj__Teach__5070F446">
+        <Association Name="FK__ClassSubj__Teach__5165187F">
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
           <End Role="ClassSubjectTeacher" Type="Self.ClassSubjectTeacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -211,7 +212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Grade__Student_I__46E78A0C">
+        <Association Name="FK__Grade__Student_I__47DBAE45">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
           <ReferentialConstraint>
@@ -223,7 +224,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Grade__Subject_I__47DBAE45">
+        <Association Name="FK__Grade__Subject_I__48CFD27E">
           <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
           <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
           <ReferentialConstraint>
@@ -232,6 +233,18 @@
             </Principal>
             <Dependent Role="Grade">
               <PropertyRef Name="Subject_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__Receive__35BCFE0A">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="ReceiverId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -247,7 +260,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Parent__Account___3E52440B">
+        <Association Name="FK__Parent__Account___3F466844">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Parent" Type="Self.Parent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -259,7 +272,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Account__4222D4EF">
+        <Association Name="FK__Student__Account__4316F928">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -271,7 +284,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Class_I__4316F928">
+        <Association Name="FK__Student__Class_I__440B1D61">
           <End Role="Class" Type="Self.Class" Multiplicity="1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -283,7 +296,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Parent___440B1D61">
+        <Association Name="FK__Student__Parent___44FF419A">
           <End Role="Parent" Type="Self.Parent" Multiplicity="1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -295,7 +308,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Teacher__Account__3A81B327">
+        <Association Name="FK__Teacher__Account__3B75D760">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -379,55 +392,59 @@
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__AccountMe__Accou__4AB81AF0" Association="Self.FK__AccountMe__Accou__4AB81AF0">
+          <AssociationSet Name="FK__AccountMe__Accou__4BAC3F29" Association="Self.FK__AccountMe__Accou__4BAC3F29">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AccountMessage" EntitySet="AccountMessage" />
           </AssociationSet>
-          <AssociationSet Name="FK__AccountMe__Messa__4BAC3F29" Association="Self.FK__AccountMe__Messa__4BAC3F29">
+          <AssociationSet Name="FK__AccountMe__Messa__4CA06362" Association="Self.FK__AccountMe__Messa__4CA06362">
             <End Role="Message" EntitySet="Message" />
             <End Role="AccountMessage" EntitySet="AccountMessage" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClassSubj__Class__4E88ABD4" Association="Self.FK__ClassSubj__Class__4E88ABD4">
+          <AssociationSet Name="FK__ClassSubj__Class__4F7CD00D" Association="Self.FK__ClassSubj__Class__4F7CD00D">
             <End Role="Class" EntitySet="Class" />
             <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeacher" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClassSubj__Subje__4F7CD00D" Association="Self.FK__ClassSubj__Subje__4F7CD00D">
+          <AssociationSet Name="FK__ClassSubj__Subje__5070F446" Association="Self.FK__ClassSubj__Subje__5070F446">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeacher" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClassSubj__Teach__5070F446" Association="Self.FK__ClassSubj__Teach__5070F446">
+          <AssociationSet Name="FK__ClassSubj__Teach__5165187F" Association="Self.FK__ClassSubj__Teach__5165187F">
             <End Role="Teacher" EntitySet="Teacher" />
             <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeacher" />
           </AssociationSet>
-          <AssociationSet Name="FK__Grade__Student_I__46E78A0C" Association="Self.FK__Grade__Student_I__46E78A0C">
+          <AssociationSet Name="FK__Grade__Student_I__47DBAE45" Association="Self.FK__Grade__Student_I__47DBAE45">
             <End Role="Student" EntitySet="Student" />
             <End Role="Grade" EntitySet="Grade" />
           </AssociationSet>
-          <AssociationSet Name="FK__Grade__Subject_I__47DBAE45" Association="Self.FK__Grade__Subject_I__47DBAE45">
+          <AssociationSet Name="FK__Grade__Subject_I__48CFD27E" Association="Self.FK__Grade__Subject_I__48CFD27E">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Grade" EntitySet="Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__Receive__35BCFE0A" Association="Self.FK__Message__Receive__35BCFE0A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Message" EntitySet="Message" />
           </AssociationSet>
           <AssociationSet Name="FK__Message__SenderI__34C8D9D1" Association="Self.FK__Message__SenderI__34C8D9D1">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Message" EntitySet="Message" />
           </AssociationSet>
-          <AssociationSet Name="FK__Parent__Account___3E52440B" Association="Self.FK__Parent__Account___3E52440B">
+          <AssociationSet Name="FK__Parent__Account___3F466844" Association="Self.FK__Parent__Account___3F466844">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Parent" EntitySet="Parent" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Account__4222D4EF" Association="Self.FK__Student__Account__4222D4EF">
+          <AssociationSet Name="FK__Student__Account__4316F928" Association="Self.FK__Student__Account__4316F928">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Class_I__4316F928" Association="Self.FK__Student__Class_I__4316F928">
+          <AssociationSet Name="FK__Student__Class_I__440B1D61" Association="Self.FK__Student__Class_I__440B1D61">
             <End Role="Class" EntitySet="Class" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Parent___440B1D61" Association="Self.FK__Student__Parent___440B1D61">
+          <AssociationSet Name="FK__Student__Parent___44FF419A" Association="Self.FK__Student__Parent___44FF419A">
             <End Role="Parent" EntitySet="Parent" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
-          <AssociationSet Name="FK__Teacher__Account__3A81B327" Association="Self.FK__Teacher__Account__3A81B327">
+          <AssociationSet Name="FK__Teacher__Account__3B75D760" Association="Self.FK__Teacher__Account__3B75D760">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Teacher" EntitySet="Teacher" />
           </AssociationSet>
@@ -474,47 +491,51 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
           </AssociationSet>
+          <AssociationSet Name="FK__Message__Receive__35BCFE0A" Association="SBD_DBModel.FK__Message__Receive__35BCFE0A">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
           <AssociationSet Name="FK__Message__SenderI__34C8D9D1" Association="SBD_DBModel.FK__Message__SenderI__34C8D9D1">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Message" EntitySet="Messages" />
           </AssociationSet>
-          <AssociationSet Name="FK__Parent__Account___3E52440B" Association="SBD_DBModel.FK__Parent__Account___3E52440B">
+          <AssociationSet Name="FK__Parent__Account___3F466844" Association="SBD_DBModel.FK__Parent__Account___3F466844">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Parent" EntitySet="Parents" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Account__4222D4EF" Association="SBD_DBModel.FK__Student__Account__4222D4EF">
+          <AssociationSet Name="FK__Student__Account__4316F928" Association="SBD_DBModel.FK__Student__Account__4316F928">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__Teacher__Account__3A81B327" Association="SBD_DBModel.FK__Teacher__Account__3A81B327">
+          <AssociationSet Name="FK__Teacher__Account__3B75D760" Association="SBD_DBModel.FK__Teacher__Account__3B75D760">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Teacher" EntitySet="Teachers" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClassSubj__Class__4E88ABD4" Association="SBD_DBModel.FK__ClassSubj__Class__4E88ABD4">
+          <AssociationSet Name="FK__ClassSubj__Class__4F7CD00D" Association="SBD_DBModel.FK__ClassSubj__Class__4F7CD00D">
             <End Role="Class" EntitySet="Classes" />
             <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeachers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Class_I__4316F928" Association="SBD_DBModel.FK__Student__Class_I__4316F928">
+          <AssociationSet Name="FK__Student__Class_I__440B1D61" Association="SBD_DBModel.FK__Student__Class_I__440B1D61">
             <End Role="Class" EntitySet="Classes" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClassSubj__Subje__4F7CD00D" Association="SBD_DBModel.FK__ClassSubj__Subje__4F7CD00D">
+          <AssociationSet Name="FK__ClassSubj__Subje__5070F446" Association="SBD_DBModel.FK__ClassSubj__Subje__5070F446">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeachers" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClassSubj__Teach__5070F446" Association="SBD_DBModel.FK__ClassSubj__Teach__5070F446">
+          <AssociationSet Name="FK__ClassSubj__Teach__5165187F" Association="SBD_DBModel.FK__ClassSubj__Teach__5165187F">
             <End Role="Teacher" EntitySet="Teachers" />
             <End Role="ClassSubjectTeacher" EntitySet="ClassSubjectTeachers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Grade__Student_I__46E78A0C" Association="SBD_DBModel.FK__Grade__Student_I__46E78A0C">
+          <AssociationSet Name="FK__Grade__Student_I__47DBAE45" Association="SBD_DBModel.FK__Grade__Student_I__47DBAE45">
             <End Role="Student" EntitySet="Students" />
             <End Role="Grade" EntitySet="Grades" />
           </AssociationSet>
-          <AssociationSet Name="FK__Grade__Subject_I__47DBAE45" Association="SBD_DBModel.FK__Grade__Subject_I__47DBAE45">
+          <AssociationSet Name="FK__Grade__Subject_I__48CFD27E" Association="SBD_DBModel.FK__Grade__Subject_I__48CFD27E">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Grade" EntitySet="Grades" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student__Parent___440B1D61" Association="SBD_DBModel.FK__Student__Parent___440B1D61">
+          <AssociationSet Name="FK__Student__Parent___44FF419A" Association="SBD_DBModel.FK__Student__Parent___44FF419A">
             <End Role="Parent" EntitySet="Parents" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
@@ -583,11 +604,12 @@
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="SBD_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="SBD_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
-          <NavigationProperty Name="Messages" Relationship="SBD_DBModel.FK__Message__SenderI__34C8D9D1" FromRole="AspNetUser" ToRole="Message" />
-          <NavigationProperty Name="Parents" Relationship="SBD_DBModel.FK__Parent__Account___3E52440B" FromRole="AspNetUser" ToRole="Parent" />
-          <NavigationProperty Name="Students" Relationship="SBD_DBModel.FK__Student__Account__4222D4EF" FromRole="AspNetUser" ToRole="Student" />
-          <NavigationProperty Name="Teachers" Relationship="SBD_DBModel.FK__Teacher__Account__3A81B327" FromRole="AspNetUser" ToRole="Teacher" />
-          <NavigationProperty Name="Messages1" Relationship="SBD_DBModel.AccountMessage" FromRole="AspNetUser" ToRole="Message" />
+          <NavigationProperty Name="Messages" Relationship="SBD_DBModel.FK__Message__Receive__35BCFE0A" FromRole="AspNetUser" ToRole="Message" />
+          <NavigationProperty Name="Messages1" Relationship="SBD_DBModel.FK__Message__SenderI__34C8D9D1" FromRole="AspNetUser" ToRole="Message" />
+          <NavigationProperty Name="Parents" Relationship="SBD_DBModel.FK__Parent__Account___3F466844" FromRole="AspNetUser" ToRole="Parent" />
+          <NavigationProperty Name="Students" Relationship="SBD_DBModel.FK__Student__Account__4316F928" FromRole="AspNetUser" ToRole="Student" />
+          <NavigationProperty Name="Teachers" Relationship="SBD_DBModel.FK__Teacher__Account__3B75D760" FromRole="AspNetUser" ToRole="Teacher" />
+          <NavigationProperty Name="Messages2" Relationship="SBD_DBModel.AccountMessage" FromRole="AspNetUser" ToRole="Message" />
           <NavigationProperty Name="AspNetRoles" Relationship="SBD_DBModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
         <EntityType Name="Class">
@@ -597,8 +619,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ClassName" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="ClassSubjectTeachers" Relationship="SBD_DBModel.FK__ClassSubj__Class__4E88ABD4" FromRole="Class" ToRole="ClassSubjectTeacher" />
-          <NavigationProperty Name="Students" Relationship="SBD_DBModel.FK__Student__Class_I__4316F928" FromRole="Class" ToRole="Student" />
+          <NavigationProperty Name="ClassSubjectTeachers" Relationship="SBD_DBModel.FK__ClassSubj__Class__4F7CD00D" FromRole="Class" ToRole="ClassSubjectTeacher" />
+          <NavigationProperty Name="Students" Relationship="SBD_DBModel.FK__Student__Class_I__440B1D61" FromRole="Class" ToRole="Student" />
         </EntityType>
         <EntityType Name="ClassSubjectTeacher">
           <Key>
@@ -609,9 +631,9 @@
           <Property Name="Class_Id" Type="Int32" Nullable="false" />
           <Property Name="Subject_Id" Type="Int32" Nullable="false" />
           <Property Name="Teacher_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Class" Relationship="SBD_DBModel.FK__ClassSubj__Class__4E88ABD4" FromRole="ClassSubjectTeacher" ToRole="Class" />
-          <NavigationProperty Name="Subject" Relationship="SBD_DBModel.FK__ClassSubj__Subje__4F7CD00D" FromRole="ClassSubjectTeacher" ToRole="Subject" />
-          <NavigationProperty Name="Teacher" Relationship="SBD_DBModel.FK__ClassSubj__Teach__5070F446" FromRole="ClassSubjectTeacher" ToRole="Teacher" />
+          <NavigationProperty Name="Class" Relationship="SBD_DBModel.FK__ClassSubj__Class__4F7CD00D" FromRole="ClassSubjectTeacher" ToRole="Class" />
+          <NavigationProperty Name="Subject" Relationship="SBD_DBModel.FK__ClassSubj__Subje__5070F446" FromRole="ClassSubjectTeacher" ToRole="Subject" />
+          <NavigationProperty Name="Teacher" Relationship="SBD_DBModel.FK__ClassSubj__Teach__5165187F" FromRole="ClassSubjectTeacher" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
@@ -623,8 +645,8 @@
           <Property Name="Value" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="IsFinal" Type="Boolean" Nullable="false" />
           <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Student" Relationship="SBD_DBModel.FK__Grade__Student_I__46E78A0C" FromRole="Grade" ToRole="Student" />
-          <NavigationProperty Name="Subject" Relationship="SBD_DBModel.FK__Grade__Subject_I__47DBAE45" FromRole="Grade" ToRole="Subject" />
+          <NavigationProperty Name="Student" Relationship="SBD_DBModel.FK__Grade__Student_I__47DBAE45" FromRole="Grade" ToRole="Student" />
+          <NavigationProperty Name="Subject" Relationship="SBD_DBModel.FK__Grade__Subject_I__48CFD27E" FromRole="Grade" ToRole="Subject" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -632,9 +654,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SenderId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiverId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="false" />
           <Property Name="SendDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Message__SenderI__34C8D9D1" FromRole="Message" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Message__Receive__35BCFE0A" FromRole="Message" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser1" Relationship="SBD_DBModel.FK__Message__SenderI__34C8D9D1" FromRole="Message" ToRole="AspNetUser" />
           <NavigationProperty Name="AspNetUsers" Relationship="SBD_DBModel.AccountMessage" FromRole="Message" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Parent">
@@ -646,8 +670,8 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Parent__Account___3E52440B" FromRole="Parent" ToRole="AspNetUser" />
-          <NavigationProperty Name="Students" Relationship="SBD_DBModel.FK__Student__Parent___440B1D61" FromRole="Parent" ToRole="Student" />
+          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Parent__Account___3F466844" FromRole="Parent" ToRole="AspNetUser" />
+          <NavigationProperty Name="Students" Relationship="SBD_DBModel.FK__Student__Parent___44FF419A" FromRole="Parent" ToRole="Student" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -660,10 +684,10 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Student__Account__4222D4EF" FromRole="Student" ToRole="AspNetUser" />
-          <NavigationProperty Name="Class" Relationship="SBD_DBModel.FK__Student__Class_I__4316F928" FromRole="Student" ToRole="Class" />
-          <NavigationProperty Name="Grades" Relationship="SBD_DBModel.FK__Grade__Student_I__46E78A0C" FromRole="Student" ToRole="Grade" />
-          <NavigationProperty Name="Parent" Relationship="SBD_DBModel.FK__Student__Parent___440B1D61" FromRole="Student" ToRole="Parent" />
+          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Student__Account__4316F928" FromRole="Student" ToRole="AspNetUser" />
+          <NavigationProperty Name="Class" Relationship="SBD_DBModel.FK__Student__Class_I__440B1D61" FromRole="Student" ToRole="Class" />
+          <NavigationProperty Name="Grades" Relationship="SBD_DBModel.FK__Grade__Student_I__47DBAE45" FromRole="Student" ToRole="Grade" />
+          <NavigationProperty Name="Parent" Relationship="SBD_DBModel.FK__Student__Parent___44FF419A" FromRole="Student" ToRole="Parent" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -672,8 +696,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="LearningContent" Type="String" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ClassSubjectTeachers" Relationship="SBD_DBModel.FK__ClassSubj__Subje__4F7CD00D" FromRole="Subject" ToRole="ClassSubjectTeacher" />
-          <NavigationProperty Name="Grades" Relationship="SBD_DBModel.FK__Grade__Subject_I__47DBAE45" FromRole="Subject" ToRole="Grade" />
+          <NavigationProperty Name="ClassSubjectTeachers" Relationship="SBD_DBModel.FK__ClassSubj__Subje__5070F446" FromRole="Subject" ToRole="ClassSubjectTeacher" />
+          <NavigationProperty Name="Grades" Relationship="SBD_DBModel.FK__Grade__Subject_I__48CFD27E" FromRole="Subject" ToRole="Grade" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -684,8 +708,8 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Teacher__Account__3A81B327" FromRole="Teacher" ToRole="AspNetUser" />
-          <NavigationProperty Name="ClassSubjectTeachers" Relationship="SBD_DBModel.FK__ClassSubj__Teach__5070F446" FromRole="Teacher" ToRole="ClassSubjectTeacher" />
+          <NavigationProperty Name="AspNetUser" Relationship="SBD_DBModel.FK__Teacher__Account__3B75D760" FromRole="Teacher" ToRole="AspNetUser" />
+          <NavigationProperty Name="ClassSubjectTeachers" Relationship="SBD_DBModel.FK__ClassSubj__Teach__5165187F" FromRole="Teacher" ToRole="ClassSubjectTeacher" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="SBD_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -715,6 +739,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Message__Receive__35BCFE0A">
+          <End Type="SBD_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="SBD_DBModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="ReceiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Message__SenderI__34C8D9D1">
           <End Type="SBD_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
           <End Type="SBD_DBModel.Message" Role="Message" Multiplicity="*" />
@@ -727,7 +763,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Parent__Account___3E52440B">
+        <Association Name="FK__Parent__Account___3F466844">
           <End Type="SBD_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
           <End Type="SBD_DBModel.Parent" Role="Parent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -739,7 +775,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Account__4222D4EF">
+        <Association Name="FK__Student__Account__4316F928">
           <End Type="SBD_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
           <End Type="SBD_DBModel.Student" Role="Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -751,7 +787,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Teacher__Account__3A81B327">
+        <Association Name="FK__Teacher__Account__3B75D760">
           <End Type="SBD_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
           <End Type="SBD_DBModel.Teacher" Role="Teacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -763,7 +799,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClassSubj__Class__4E88ABD4">
+        <Association Name="FK__ClassSubj__Class__4F7CD00D">
           <End Type="SBD_DBModel.Class" Role="Class" Multiplicity="1" />
           <End Type="SBD_DBModel.ClassSubjectTeacher" Role="ClassSubjectTeacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -775,7 +811,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Class_I__4316F928">
+        <Association Name="FK__Student__Class_I__440B1D61">
           <End Type="SBD_DBModel.Class" Role="Class" Multiplicity="1" />
           <End Type="SBD_DBModel.Student" Role="Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -787,7 +823,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClassSubj__Subje__4F7CD00D">
+        <Association Name="FK__ClassSubj__Subje__5070F446">
           <End Type="SBD_DBModel.Subject" Role="Subject" Multiplicity="1" />
           <End Type="SBD_DBModel.ClassSubjectTeacher" Role="ClassSubjectTeacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -799,7 +835,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClassSubj__Teach__5070F446">
+        <Association Name="FK__ClassSubj__Teach__5165187F">
           <End Type="SBD_DBModel.Teacher" Role="Teacher" Multiplicity="1" />
           <End Type="SBD_DBModel.ClassSubjectTeacher" Role="ClassSubjectTeacher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -811,7 +847,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Grade__Student_I__46E78A0C">
+        <Association Name="FK__Grade__Student_I__47DBAE45">
           <End Type="SBD_DBModel.Student" Role="Student" Multiplicity="1" />
           <End Type="SBD_DBModel.Grade" Role="Grade" Multiplicity="*" />
           <ReferentialConstraint>
@@ -823,7 +859,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Grade__Subject_I__47DBAE45">
+        <Association Name="FK__Grade__Subject_I__48CFD27E">
           <End Type="SBD_DBModel.Subject" Role="Subject" Multiplicity="1" />
           <End Type="SBD_DBModel.Grade" Role="Grade" Multiplicity="*" />
           <ReferentialConstraint>
@@ -835,7 +871,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Student__Parent___440B1D61">
+        <Association Name="FK__Student__Parent___44FF419A">
           <End Type="SBD_DBModel.Parent" Role="Parent" Multiplicity="1" />
           <End Type="SBD_DBModel.Student" Role="Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -951,6 +987,7 @@
               <MappingFragment StoreEntitySet="Message">
                 <ScalarProperty Name="SendDate" ColumnName="SendDate" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ReceiverId" ColumnName="ReceiverId" />
                 <ScalarProperty Name="SenderId" ColumnName="SenderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

@@ -22,10 +22,12 @@ namespace AJDENTITY.Models
     
         public int Id { get; set; }
         public string SenderId { get; set; }
+        public string ReceiverId { get; set; }
         public string Content { get; set; }
         public System.DateTime SendDate { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
