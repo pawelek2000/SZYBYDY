@@ -37,7 +37,7 @@
                         }
 
                         @if (User.IsInRole("Nauczyciel")) {
-                            <li>@Html.ActionLink("Moje Klasy", "", "")</li>
+                            <li>@Html.ActionLink("Moje Klasy", "Index", "MojeKlasyNauczyciel")</li>
                             <li>@Html.ActionLink("Moje Przedmioty", "", "")</li>
                             <li>@Html.ActionLink("Skrzynka pocztowa", "", "")</li>
                             <li>@Html.ActionLink("Edytuj profil", "", "")</li>

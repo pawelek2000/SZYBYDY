@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MojeDzieciController.cs" />
+    <Compile Include="Controllers\MojeKlasyNauczycielController.cs" />
     <Compile Include="Controllers\ParentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
@@ -353,6 +354,14 @@
     <Content Include="Views\MojeDzieci\Details.cshtml" />
     <Content Include="Views\MojeDzieci\Index.cshtml" />
     <Content Include="Views\MojeDzieci\OcenyDziecka.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\PrzedmiotyDanejKlasy.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\Index.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\UczniowieDaneKlasyIPrzedmiotu.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\OcenyUczniaZPrzedmiotu.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\Create.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\Delete.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\Details.cshtml" />
+    <Content Include="Views\MojeKlasyNauczyciel\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
