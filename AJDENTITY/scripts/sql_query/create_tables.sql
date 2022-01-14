@@ -6,7 +6,7 @@ CREATE TABLE Announcement (
 
     Title               VARCHAR(64)         NOT NULL,
     Content             VARCHAR(2048)       NOT NULL,
-    AddedDate           SMALLDATETIME       NOT NULL,
+    AddedDate           DATETIME       		NOT NULL,
 );
 
 
@@ -14,7 +14,7 @@ CREATE TABLE Class (
     Id                  INT                 NOT NULL        PRIMARY KEY IDENTITY,
 
     ClassName           VARCHAR(16)         NOT NULL,
-    StartDate           SMALLDATETIME       NOT NULL,
+    StartDate           DATETIME       		NOT NULL,
 );
 
 CREATE TABLE Message (
@@ -24,7 +24,7 @@ CREATE TABLE Message (
 	ReceiverId			NVARCHAR(128)		NOT NULL		FOREIGN KEY REFERENCES AspNetUsers(Id),
 	
     Content             VARCHAR(1024)       NOT NULL,
-    SendDate            SMALLDATETIME       NOT NULL,
+    SendDate            DATETIME       		NOT NULL,
 );
 
 CREATE TABLE Subject (
@@ -74,7 +74,7 @@ CREATE TABLE Grade (
 
     Value               VARCHAR(3)          NOT NULL,
     IsFinal             BIT                 NOT NULL,
-    AddedDate           SMALLDATETIME       NOT NULL,
+    AddedDate           DATETIME       		NOT NULL,
 );
 
 

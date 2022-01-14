@@ -42,7 +42,7 @@ namespace AJDENTITY.Controllers
                 }
             }
 
-            return View(messages.ToList());
+            return View(messages.OrderByDescending(o => o.SendDate).ToList());
         }
 
         // GET: Messages/Create
