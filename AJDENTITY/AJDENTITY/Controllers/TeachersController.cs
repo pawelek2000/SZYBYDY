@@ -166,6 +166,12 @@ namespace AJDENTITY.Controllers
             Teacher teacher = db.Teachers.Find(id);
             AspNetUser user = db.AspNetUsers.Find(teacher.Account_Id);
 
+            var messages = db.Messages.Where(p => p.SenderId == teacher.Account_Id || p.ReceiverId == teacher.Account_Id).ToList();
+
+            foreach(var message in messages) {
+                db.Messages.Remove(message);
+            }
+
             db.Teachers.Remove(teacher);
             db.AspNetUsers.Remove(user);
 

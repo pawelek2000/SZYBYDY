@@ -166,6 +166,12 @@ namespace AJDENTITY.Controllers
             Parent parent = db.Parents.Find(id);
             AspNetUser user = db.AspNetUsers.Find(parent.Account_Id);
 
+            var messages = db.Messages.Where(p => p.SenderId == parent.Account_Id || p.ReceiverId == parent.Account_Id).ToList();
+
+            foreach (var message in messages) {
+                db.Messages.Remove(message);
+            }
+
             db.Parents.Remove(parent);
             db.AspNetUsers.Remove(user);
 

@@ -172,6 +172,9 @@
     <Compile Include="Controllers\AnnouncementsController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\ClassSubjectTeachersController.cs" />
+    <Compile Include="Controllers\EdytujProfilNauczycielController.cs" />
+    <Compile Include="Controllers\EdytujProfilRodzicController.cs" />
+    <Compile Include="Controllers\EdytujProfilUczenController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KontaktyDoNauczycieliController.cs" />
@@ -376,6 +379,12 @@
     <Content Include="Views\KontaktyDoRodzicow\Create.cshtml" />
     <Content Include="Views\KontaktyDoRodzicow\Details.cshtml" />
     <Content Include="Views\KontaktyDoRodzicow\Index.cshtml" />
+    <Content Include="Views\EdytujProfilUczen\Edit.cshtml" />
+    <Content Include="Views\EdytujProfilUczen\Details.cshtml" />
+    <Content Include="Views\EdytujProfilRodzic\Details.cshtml" />
+    <Content Include="Views\EdytujProfilRodzic\Edit.cshtml" />
+    <Content Include="Views\EdytujProfilNauczyciel\Details.cshtml" />
+    <Content Include="Views\EdytujProfilNauczyciel\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
