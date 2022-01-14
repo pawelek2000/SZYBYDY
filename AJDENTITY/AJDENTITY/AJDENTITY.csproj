@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MojeDzieciController.cs" />
     <Compile Include="Controllers\MojeKlasyNauczycielController.cs" />
+    <Compile Include="Controllers\MojePrzedmiotyNauczycielController.cs" />
     <Compile Include="Controllers\ParentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
@@ -376,6 +377,9 @@
     <Content Include="Views\KontaktyDoRodzicow\Create.cshtml" />
     <Content Include="Views\KontaktyDoRodzicow\Details.cshtml" />
     <Content Include="Views\KontaktyDoRodzicow\Index.cshtml" />
+    <Content Include="Views\MojePrzedmiotyNauczyciel\Details.cshtml" />
+    <Content Include="Views\MojePrzedmiotyNauczyciel\Edit.cshtml" />
+    <Content Include="Views\MojePrzedmiotyNauczyciel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
