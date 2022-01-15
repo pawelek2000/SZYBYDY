@@ -11,12 +11,14 @@ namespace AJDENTITY.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Grade
     {
         public int Id { get; set; }
         public int Student_Id { get; set; }
         public int Subject_Id { get; set; }
+        [RegularExpression("1|1.5|2|2.5|3|3.5|4|4.5|5|5.5|6", ErrorMessage = "Ocena musi byæ w przedziale 1-6.")]
         public string Value { get; set; }
         public bool IsFinal { get; set; }
         public System.DateTime AddedDate { get; set; }
