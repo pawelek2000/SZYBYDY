@@ -94,13 +94,43 @@ INSERT INTO [dbo].[Student] ([Id], [Account_Id], [Class_Id], [Parent_Id], [Name]
 SET IDENTITY_INSERT [dbo].[Student] OFF
 
 -- Grade
+SET IDENTITY_INSERT [dbo].[Grade] ON
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (1, 10, 35, N'4', 0, N'2022-01-15 10:09:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (2, 10, 35, N'4', 0, N'2022-01-15 10:09:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (3, 10, 35, N'3', 0, N'2022-01-15 10:09:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (5, 10, 22, N'5', 0, N'2022-01-15 10:13:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (6, 10, 22, N'3', 0, N'2022-01-15 10:13:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (8, 10, 22, N'2', 0, N'2022-01-15 10:14:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (9, 10, 27, N'4', 0, N'2022-01-15 10:39:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (10, 10, 27, N'5', 0, N'2022-01-15 10:39:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (11, 10, 27, N'6', 0, N'2022-01-15 10:39:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (13, 10, 30, N'5', 0, N'2022-01-15 10:39:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (14, 10, 30, N'2', 0, N'2022-01-15 10:39:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (15, 10, 30, N'3', 0, N'2022-01-15 10:39:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (17, 10, 19, N'5', 0, N'2022-01-15 10:42:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (18, 10, 19, N'3', 0, N'2022-01-15 10:42:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (19, 10, 19, N'2', 0, N'2022-01-15 10:42:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (20, 10, 11, N'5', 0, N'2022-01-15 10:43:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (21, 10, 11, N'6', 0, N'2022-01-15 10:43:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (22, 10, 11, N'4', 0, N'2022-01-15 10:43:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (23, 10, 38, N'6', 0, N'2022-01-15 10:44:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (24, 10, 38, N'4', 0, N'2022-01-15 10:44:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (25, 10, 2, N'4', 0, N'2022-01-15 10:49:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (26, 10, 2, N'2', 0, N'2022-01-15 10:49:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (27, 10, 2, N'5', 0, N'2022-01-15 10:49:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (28, 10, 15, N'2', 0, N'2022-01-15 10:52:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (29, 10, 15, N'2', 0, N'2022-01-15 10:52:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (30, 10, 15, N'1', 0, N'2022-01-15 10:52:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (31, 10, 1, N'6', 0, N'2022-01-15 10:55:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (32, 10, 1, N'6', 0, N'2022-01-15 10:55:00')
+INSERT INTO [dbo].[Grade] ([Id], [Student_Id], [Subject_Id], [Value], [IsFinal], [AddedDate]) VALUES (33, 10, 1, N'5', 0, N'2022-01-15 10:55:00')
+SET IDENTITY_INSERT [dbo].[Grade] OFF
 -- TODO
 
 
 -- Class_Subject_Teacher
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 1, 23)
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 2, 8)
-INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 4, 23)
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 11, 19)
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 15, 15)
 INSERT INTO [dbo].[ClassSubjectTeacher] ([Class_Id], [Subject_Id], [Teacher_Id]) VALUES (1, 19, 14)
