@@ -1,3 +1,20 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    int? motyw = Session["Motyw"] as int?;
+
+    if(motyw == 1)
+    {
+
+        Layout = "~/Views/Shared/_LayoutCzarny.cshtml";
+
+    }
+
+    else if (motyw == 2)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutPiekny.cshtml";
+    }
 }

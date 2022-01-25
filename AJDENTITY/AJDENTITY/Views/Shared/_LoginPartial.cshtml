@@ -5,17 +5,18 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Zalogowano jako: " + User.Identity.GetUserName() + "!", "dummy", null, new { href = "" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li><a class="nav-link active" href=""> Zalogowano jako: @User.Identity.GetUserName() ! </a></li>
+    <li><a class="nav-link active" href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a></li>
+
+
+
+</ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li><a class="nav-link active" href="/Account/Login"> Zaloguj  </a></li>
+</ul>
 }

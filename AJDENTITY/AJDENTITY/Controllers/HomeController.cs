@@ -33,7 +33,24 @@ namespace AJDENTITY.Controllers {
             }
             return View(announcement);
         }
-   
         
+        public ActionResult Czarny()
+        {
+            Session["Motyw"] = 1;
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Bialy()
+        {
+            Session["Motyw"] = 2;
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Piekny()
+        {
+            Session["Motyw"] = 3;
+            return RedirectToAction("Index");
+        }
+
     }
 }

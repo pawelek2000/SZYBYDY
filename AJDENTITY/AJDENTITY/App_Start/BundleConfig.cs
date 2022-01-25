@@ -20,7 +20,15 @@ namespace AJDENTITY {
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap_bialko.css",
+                      "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css2").Include(
+                      "~/Content/bootstrap_super_czarny.css",
+                      "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css3").Include(
+                      "~/Content/bootstrap_piekny.css",
                       "~/Content/site.css"));
         }
     }
